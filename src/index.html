@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Mediatek</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <div class="navbar d-flex border-bottom border-dark border-2 pb-0">
+        <div class="mr-auto p-2 pb-0">
+          <button class="btn bg-transparent fs-5 rounded-0" id="filterByAll"> All</button>
+          <button class="btn bg-transparent fs-5 rounded-0" id="filterByAlbum"><img src="./assets/images-site/album.png" alt="logo albums" class="pe-1 image-button-size">Albums</button>
+          <button class="btn bg-transparent fs-5 rounded-0" id="filterByGame"><img src="./assets/images-site/game.png" alt="logo games" class="pe-1 image-button-size">Games</button>
+          <button class="btn bg-transparent fs-5 rounded-0" id="filterByMovie"><img src="./assets/images-site/movie.png" alt="logo movies" class="pe-1 image-button-size">Movies</button>
+          <button class="btn bg-transparent fs-5 rounded-0" id="addTestMedias"> Add test data</button>
+          <button class="btn bg-transparent fs-5 rounded-0" onclick="localStorage.removeItem('savedMedias');"> reset localStorage</button>
+          <select class="form-select bg-transparent fs-5 rounded-0"  id="sortBy"> 
+            <option value="" selected>aucun tri</option>
+            <option value="releaseDate">Date de sortie</option>
+            <option value="rating">Note</option>
+            <option value="title">Titre</option>
+          </select>
+        </div>
+        <div class="p-2 pb-0">
+          <!-- <button type="button" id="showModal" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary fs-5"> Add media</button> -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Ajouter un media
+          </button>
+        </div>
+    </div>
+
+    <div class="d-flex flex-wrap justify-content-center border rounded m-3 border-2 gap-2 p-2" id="card-list">
+      <!-- <div class="card">
+        <img class="card-img-top" src="./assets/images-medias/cod-mw2-taille-disque-polemique.jpg" alt="background image assassins creed">
+        <div class="card-body">
+          <h3 class="card-title mb-0"><img src="./assets/images-site/game.png" alt="game icon" class="me-2 image-titre-size">COD MW||</h3>
+          <p class="text-muted">Released the 28/10/2022 at 3:50:00 PM</p>
+          <p class="card-text">Call of Duty : Modern Warfare 2 est un jeu de tir à la première personne développé par Infinity Ward, et édité par Activision. Il bénéficie d'une sortie mondiale sur consoles Xbox 360, PlayStation 3 ainsi que sur Microsoft Windows le 10 novembre 2009.</p>
+        </div>
+        <div class="containter">
+          <p class="row w-100 m-0 ps-3 border-top">Rating : ★ ★ ★ ☆ ☆</p>
+          <div class="row w-100 m-0">
+            <button type="button" class="col border-0 fw-bold text-black-50 rounded-bottom-start"><img src="./assets/images-site/edit.png" alt="edit icon" class="me-2 image-button-size">Edit</button>
+            <button type="button" class="col border-0 bg-info text-light fw-bold rounded-bottom-end"><img src="./assets/images-site/remove.png" alt="remove icon" class="me-2 image-button-size">Remove</button>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="./assets/images-medias/91lmTAVXgHL.jpg" alt="background image assassins creed">
+        <div class="card-body">
+          <h3 class="card-title mb-0"><img src="./assets/images-site/movie.png" alt="movie albums" class="me-2 image-titre-size">Assassins Creed VALHALLA</h3>
+          <p class="text-muted">Released the 28/10/2022 at 3:50:00 PM</p>
+          <p class="card-text">Call of Duty : Modern Warfare 2 est un jeu de tir à la première personne développé par Infinity Ward, et édité par Activision. Il bénéficie d'une sortie mondiale sur consoles Xbox 360, PlayStation 3 ainsi que sur Microsoft Windows le 10 novembre 2009.</p>
+        </div>
+        <div class="containter">
+          <p class="row w-100 m-0 ps-3 border-top">Rating : ★ ★ ★ ☆ ☆</p>
+          <div class="row w-100 m-0">
+            <button type="button" class="col border-0 fw-bold text-black-50 rounded-bottom-start"><img src="./assets/images-site/edit.png" alt="edit icon" class="me-2 image-button-size">Edit</button>
+            <button type="button" class="col border-0 bg-info text-light fw-bold rounded-bottom-end"><img src="./assets/images-site/remove.png" alt="remove icon" class="me-2 image-button-size">Remove</button>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="./assets/images-medias/gta-v-cover-ps5-xbox-series-xs-8584-1920.jpg" alt="background image COD MW2">
+        <div class="card-body">
+          <h3 class="card-title mb-0"><img src="./assets/images-site/album.png" alt="logo albums" class="me-2 image-titre-size">GTA V</h3>
+          <p class="text-muted">Released the 28/10/2022 at 3:50:00 PM</p>
+          <p class="card-text">Call of Duty : Modern Warfare 2 est un jeu de tir à la première personne développé par Infinity Ward, et édité par Activision. Il bénéficie d'une sortie mondiale sur consoles Xbox 360, PlayStation 3 ainsi que sur Microsoft Windows le 10 novembre 2009.</p>
+        </div>
+        <div class="containter">
+          <p class="row w-100 m-0 ps-3 border-top">Rating : ★ ★ ★ ☆ ☆</p>
+          <div class="row w-100 m-0">
+            <button type="button" class="col border-0 fw-bold text-black-50 rounded-bottom-start"><img src="./assets/images-site/edit.png" alt="edit icon" class="me-2 image-button-size">Edit</button>
+            <button type="button" class="col border-0 bg-info text-light fw-bold rounded-bottom-end"><img src="./assets/images-site/remove.png" alt="remove icon" class="me-2 image-button-size">Remove</button>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="./assets/images-medias/cod-mw2-taille-disque-polemique.jpg" alt="background image assassins creed">
+        <div class="card-body">
+          <h3 class="card-title mb-0"><img src="./assets/images-site/game.png" alt="game icon" class="me-2 image-titre-size">COD MW||</h3>
+          <p class="text-muted">Released the 28/10/2022 at 3:50:00 PM</p>
+          <p class="card-text">Call of Duty : Modern Warfare 2 est un jeu de tir à la première personne développé par Infinity Ward, et édité par Activision. Il bénéficie d'une sortie mondiale sur consoles Xbox 360, PlayStation 3 ainsi que sur Microsoft Windows le 10 novembre 2009.</p>
+        </div>
+        <div class="containter">
+          <p class="row w-100 m-0 ps-3 border-top">Rating : ★ ★ ★ ☆ ☆</p>
+          <div class="row w-100 m-0">
+            <button type="button" class="col border-0 fw-bold text-black-50 rounded-bottom-start"><img src="./assets/images-site/edit.png" alt="edit icon" class="me-2 image-button-size">Edit</button>
+            <button type="button" class="col border-0 bg-info text-light fw-bold rounded-bottom-end"><img src="./assets/images-site/remove.png" alt="remove icon" class="me-2 image-button-size">Remove</button>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="./assets/images-medias/91lmTAVXgHL.jpg" alt="background image assassins creed">
+        <div class="card-body">
+          <h3 class="card-title mb-0"><img src="./assets/images-site/movie.png" alt="movie albums" class="me-2 image-titre-size">Assassins Creed VALHALLA</h3>
+          <p class="text-muted">Released the 28/10/2022 at 3:50:00 PM</p>
+          <p class="card-text">Call of Duty : Modern Warfare 2 est un jeu de tir à la première personne développé par Infinity Ward, et édité par Activision. Il bénéficie d'une sortie mondiale sur consoles Xbox 360, PlayStation 3 ainsi que sur Microsoft Windows le 10 novembre 2009.</p>
+        </div>
+        <div class="containter">
+          <p class="row w-100 m-0 ps-3 border-top">Rating : ★ ★ ★ ☆ ☆</p>
+          <div class="row w-100 m-0">
+            <button type="button" class="col border-0 fw-bold text-black-50 rounded-bottom-start"><img src="./assets/images-site/edit.png" alt="edit icon" class="me-2 image-button-size">Edit</button>
+            <button type="button" class="col border-0 bg-info text-light fw-bold rounded-bottom-end"><img src="./assets/images-site/remove.png" alt="remove icon" class="me-2 image-button-size">Remove</button>
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+    <!-- Modal -->
+    <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add media</h5> 
+            <select class="form-select" id="selectMediaList">
+              <option selected value="">choisissez un media</option>
+            </select>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal" action="">
+              <div class="form-group">
+                <label class="control-label " for="title">Title:</label>
+                <div>
+                  <input type="text" class="form-control" id="title" placeholder="Enter title">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-date " for="releaseDate">Release date:</label>
+                <div>
+                  <input type="date" class="form-control" id="releaseDate" placeholder="Enter date">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label " for="rating">Rating:</label>
+                <div>
+                  <input type="number" class="form-control" id="rating" placeholder="Enter rating between 0 and 5">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label " for="img">Image:</label>
+                <div>
+                  <input type="img" class="form-control" id="img" placeholder="Image link">
+                </div>
+              </div>
+            <div >
+              <hr>
+              <h4>Specification</h4>
+              <hr>
+              <div id="specification">
+                <p>choisissez un media</p>
+              </div>
+            </div>          
+            </form>         
+  
+          </div>
+          <div id="errorMessage"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="saveMedia">Save changes</button>
+          </div>
+        </div>
+      </div>
+  
+  </body>
+
+  <script type="module" src="./js/firstMain.js"></script>
+</html>

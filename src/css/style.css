@@ -1,0 +1,26 @@
+.navbar > :first-child > button:hover {
+  border-bottom: solid black 3px;
+  font-weight: bold;
+}
+
+body > :nth-child(2) > div {
+  width: 300px;
+}
+
+.image-titre-size {
+  height: 30px;
+  width: 30px;
+}
+
+.image-button-size {
+  height: 25px;
+  width: 25px;
+}
+
+.rounded-bottom-start {
+  border-radius: 0 0 0 0.375rem;
+}
+
+.rounded-bottom-end {
+  border-radius: 0 0 0.375rem 0;
+}
